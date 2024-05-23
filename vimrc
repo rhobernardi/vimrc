@@ -77,36 +77,12 @@ map <C-n> :NERDTreeToggle<CR>
 "     COLORS     "
 "   ◣        ◢   "
 
-" One theme
-" try "Detecta se existe o tema One
+" Theme
+try "Detecta se existe o tema
     " set termguicolors "caso nao habilite 256 cores
     " set t_Co=256
     " colorscheme one
-    " " set background=light
-    " set background=dark
-    " let g:rehash256 = 1 "terminal de 256 cores
-    " let g:one_original = 1
-" catch /^Vim\%((\a\+)\)\=:E185/
-    " :silent! "Se nao existir, nao faz nada
-" endtry
-
-" Dracula theme
-" try "Detecta se existe o tema Dracula
-    " set termguicolors "caso nao habilite 256 cores
-    " set t_Co=256
     " colorscheme dracula
-    " " set background=light
-    " " set background=dark
-    " let g:rehash256 = 1 "terminal de 256 cores
-    " let g:dracula_original = 1
-" catch /^Vim\%((\a\+)\)\=:E185/
-    " :silent! "Se nao existir, nao faz nada
-" endtry
-
-" Molokai theme
-try "Detecta se existe o tema molokai
-    " set termguicolors "caso nao habilite 256 cores
-    " set t_Co=256
     colorscheme molokai
     let g:rehash256 = 1 "config for airline: 256 colors terminal
     let g:molokai_original = 1
