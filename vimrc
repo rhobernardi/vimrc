@@ -26,6 +26,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'Xuyuanp/nerdtree-git-plugin'
     "Plug 'shougo/neocomplete.vim'          "auto-complete - vim 7.4+
     Plug 'scrooloose/nerdcommenter'         "comment easily
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 
     " Themes
     Plug 'tomasr/molokai'
@@ -65,6 +67,9 @@ nnoremap <space> za
 
 " Crtl + n open nerdtree
 map <C-n> :NERDTreeToggle<CR>
+
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>. :Rg<CR>
 
 " Shut down arrows (only h, j, k, l)
 "map <up> <nop>
