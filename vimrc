@@ -1,5 +1,5 @@
-" Para mais detalhes sobre as configurações usar :h nomeDaConfig
-" ex da opcao 'title' -> :h title
+" For more details about configs, use :h NameOfConfig
+" eg option 'title' -> :h title
 
 
 "   ◤                        ◥   "
@@ -17,6 +17,9 @@ endif
 
 " :PlugInstall to install listed plugins
 call plug#begin('~/.vim/plugged')
+    Plug 'ryanoasis/vim-devicons'           "devicons
+    Plug 'rafi/awesome-vim-colorschemes'    "colorschemes
+    Plug 'machakann/vim-highlightedyank'    "highlight yanked lines
     Plug 'bling/vim-airline'                "bottom tab with status
     Plug 'vim-airline/vim-airline-themes'   "airline themes
     Plug 'tpope/vim-surround'               "edit delimiter characters
@@ -31,8 +34,7 @@ call plug#begin('~/.vim/plugged')
 
     " Themes
     Plug 'tomasr/molokai'
-    Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'rakr/vim-one'
+    " Plug 'rakr/vim-one'
 call plug#end()
 
 
@@ -82,23 +84,14 @@ nnoremap <leader>. :Rg<CR>
 "     COLORS     "
 "   ◣        ◢   "
 
-" Theme
-try "Detecta se existe o tema
-    " set termguicolors "caso nao habilite 256 cores
-    " set t_Co=256
-    " colorscheme one
-    " colorscheme dracula
-    colorscheme molokai
-    let g:rehash256 = 1 "config for airline: 256 colors terminal
-    let g:molokai_original = 1
-catch /^Vim\%((\a\+)\)\=:E185/
-    :silent! "If doesn't exist, does nothing
-endtry
-
-" Vim AirLine Plugin Theme (bottom bar)
-" let g:airline_theme='one'
-" let g:airline_theme='dracula'
-let g:airline_theme='molokai'
+" Airline Theme
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_statusline_ontop = 0
+let g:airline_theme='base16_twilight'
+" let g:airline_theme='molokai'
+let g:airline#extensions#tabline#formater = 'default'
 set noshowmode "disable bottom informations i.e. -- INSERT -- , reduntant
 
 
@@ -119,27 +112,27 @@ set tabstop=4                   "tab 4 spaces
 "   ◤            ◥   "
 "       GENERAL      "
 "   ◣            ◢   "
-syntax enable       "ative highlight de sintaxe
+syntax enable       "syntax highlight
 set mouse=a         "enable mouse usage
-set number          "numero da linha
-set relativenumber  "inicia com numero relativo da linha (<leader> + f desliga)
-set cursorline      "highlight na linha atual
-set wildmenu        "menu de selecao de sugestoes no modo comando
-set showmatch       "mostra match de paratensis, chaves, colchetes...
-set lazyredraw      "melhoria de desempenho
-set history=1000    "historico de comandos
-set showcmd         "mostra comandos sendo digitados na barra inferior
-set hidden          "melhor uso de buffers na mesma janela
-set backup          "gera arquivo de backup
-set ttyfast         "melhoria de desempenho, ver :h ttyfast
-set title           "muda o titulo do terminal
-set encoding=utf-8  "codificacao utf-8
+set number          "line number
+set relativenumber  "relative number on (<leader> + f turns off)
+set cursorline      "current line highlight
+set wildmenu        "suggestions menu on command mode
+set showmatch       "brackets match
+set lazyredraw      "performance improvement
+set history=1000    "command history
+set showcmd         "show typing commands in the bottom bar
+set hidden          "better buffer usage in the same window
+" set backup          "generate backup file
+set ttyfast         "performance improvement, see :h ttyfast
+set title           "change terminal title
+set encoding=utf-8  "use encode utf-8
 set autoread
-set colorcolumn=80  "coluna lateral
+set colorcolumn=90  "lateral column
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 hi Normal ctermbg=none "transparent background
-set list "Mostrar tabs e trails(como o caracter •)
-set listchars=tab:•\ ,trail:•,extends:»,precedes:« "Extends aparecem com a funcao nowrap ativada
+" set list "show tabs e trails(as caracter •)
+" set listchars=tab:•\ ,trail:•,extends:»,precedes:« "extends with ativated nowrap function
 
 " Retorna a posicao que estava quando o arquivo foi fechado
 if has("autocmd")
@@ -173,4 +166,11 @@ set foldenable          "enable folds
 set foldlevelstart=10   "nivel inicial de folding, pra nao dobrar tudo no inicio, quanto mais {{, maior o nivel
 set foldnestmax=10
 set foldmethod=syntax   "uses sintax to hide: {} in C
+
+" colorscheme one
+" colorscheme OceanicNext
+colorscheme molokai
+
+let g:highlightedyank_highlight_duration = 200
+let g:highlightedyank_highlight_in_visual = 1
 
